@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/md_blue_800">
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TEATROS"
+        android:id="@+id/buttonTeatros"
+        android:drawableTop="@drawable/img_teatro"
+        android:layout_above="@+id/buttonCartelera"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CARTELERA"
+        android:id="@+id/buttonCartelera"
+        android:drawableTop="@drawable/img_cartelera"
+        android:layout_above="@+id/buttonProximosEstrenos"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PRÓXIMOS ESTRENOS"
+        android:id="@+id/buttonProximosEstrenos"
+        android:drawableTop="@drawable/img_estrenos"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/buttonCartelera" />
+
+
+</RelativeLayout>

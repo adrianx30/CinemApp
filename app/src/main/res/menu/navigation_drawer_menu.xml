@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:checked="true"
+            android:id="@+id/item_navigation_drawer_inicio"
+            android:icon="@drawable/ic_inbox_black_24dp"
+            android:title="Inicio" />
+        <item
+            android:id="@+id/item_navigation_drawer_ubicacion"
+            android:icon="@drawable/ic_action_toggle_star"
+            android:title="Ubicación" />
+        <item
+            android:id="@+id/item_navigation_drawer_reservar"
+            android:icon="@drawable/ic_action_content_send"
+            android:title="Reservar" />
+        <item
+            android:id="@+id/item_navigation_drawer_boletas_reservadas"
+            android:icon="@drawable/ic_action_content_drafts"
+            android:title="Boletas Reservadas" />
+    </group>
+
+    <item android:title="Subheader">
+        <menu>
+            <item
+                android:id="@+id/item_navigation_drawer_opciones"
+                android:icon="@drawable/ic_action_content_mail"
+                android:title="Opciones" />
+            <item
+                android:id="@+id/item_navigation_drawer_ayuda"
+                android:icon="@drawable/ic_action_action_delete"
+                android:title="Ayuda" />
+        </menu>
+    </item>
+
+</menu>

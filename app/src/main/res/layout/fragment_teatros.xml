@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/md_blue_400">
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Multicine Royal Films la 65"
+        android:id="@+id/checkBox2"
+        android:checked="false"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/checkBox4"
+        android:layout_alignParentLeft="true"
+        android:background="@color/md_blue_300"
+        android:layout_alignParentEnd="true" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Multicine Bosque Plaza"
+        android:id="@+id/checkBox3"
+        android:checked="false"
+        android:layout_marginTop="69dp"
+        android:background="@color/md_blue_300"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Multicine Premium Plaza"
+        android:id="@+id/checkBox4"
+        android:layout_alignParentStart="true"
+        android:checked="false"
+        android:layout_below="@+id/checkBox3"
+        android:layout_alignParentLeft="true"
+        android:background="@color/md_blue_300"
+        android:layout_alignParentEnd="true" />
+
+</RelativeLayout>
