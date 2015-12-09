@@ -1,5 +1,8 @@
 package dto;
 
+import com.parse.ParseClassName;
+import com.parse.ParseObject;
+
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -7,7 +10,8 @@ import java.util.List;
 /**
  * Created by Adrián on 08/12/2015.
  */
-public class Pelicula implements Serializable {
+@ParseClassName("Pelicula")
+public class Pelicula extends ParseObject implements Serializable {
 
     private String nombre;
     private int año;

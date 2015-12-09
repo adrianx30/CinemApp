@@ -18,15 +18,20 @@ public class ReservaDAOImpl implements ReservaDAO{
     @Override
     public void crearReserva(Reserva reserva) {
 
-        ParseObject res = new ParseObject("Reserva");
+        final ParseObject res;
 
-        res.put("pelicula",reserva.getPelicula());
-        res.put("sala",reserva.getSala());
-        res.put("horario",reserva.getHorario());
-        res.put("precio",reserva.getPrecio());
-        res.put("usuario",reserva.getUsuario());
-        res.put("sillas",reserva.getSillas());
-        res.saveInBackground();
+        try {
+            res = new ParseObject("Reserva");
+            res.put("pelicula", reserva.getPelicula());
+            res.put("sala", reserva.getSala());
+            res.put("horario", reserva.getHorario());
+            res.put("precio", reserva.getPrecio());
+            res.put("usuario", reserva.getUsuario());
+            res.put("sillas", reserva.getSillas());
+            res.saveInBackground();
+        }catch (Exception  e){
+            e.printStackTrace();
+        }
 
     }
 
@@ -48,6 +53,7 @@ public class ReservaDAOImpl implements ReservaDAO{
     @Override
     public List<Reserva> obtenerTodasReservas(Usuario user) {
         List<Reserva> r = new ArrayList<Reserva>();
+        Reserva res;
         ParseQuery<ParseObject> query;
         List<ParseObject> list;
         try {
@@ -57,7 +63,13 @@ public class ReservaDAOImpl implements ReservaDAO{
             list = query.find();
             if (list.size() == 0) {
                 return null;
+            }else {
+                res = new Reserva();
+                for (int x=0;x<list.size();x++){
+                    //res.setPelicula(list.get(x).getParseObject("pelicula"));
+                }
             }
+
         } catch (ParseException e) {
             e.printStackTrace();
         }
