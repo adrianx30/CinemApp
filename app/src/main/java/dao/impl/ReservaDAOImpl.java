@@ -8,7 +8,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dao.ReservaDAO;
+import dto.Funcion;
+import dto.Pelicula;
 import dto.Reserva;
+import dto.Silla;
 import dto.Usuario;
 
 /**
@@ -22,11 +25,9 @@ public class ReservaDAOImpl implements ReservaDAO{
 
         try {
             res = new ParseObject("Reserva");
-            res.put("pelicula", reserva.getPelicula());
-            res.put("sala", reserva.getSala());
-            res.put("horario", reserva.getHorario());
+            res.put("funcion", reserva.getFuncion().getFuncionId());
             res.put("precio", reserva.getPrecio());
-            res.put("usuario", reserva.getUsuario());
+            res.put("usuario", reserva.getUsuario().getNombre());
             res.put("sillas", reserva.getSillas());
             res.saveInBackground();
         }catch (Exception  e){
@@ -52,27 +53,35 @@ public class ReservaDAOImpl implements ReservaDAO{
 
     @Override
     public List<Reserva> obtenerTodasReservas(Usuario user) {
-        List<Reserva> r = new ArrayList<Reserva>();
+        List<Reserva> reservas = new ArrayList<>();
         Reserva res;
-        ParseQuery<ParseObject> query;
-        List<ParseObject> list;
-        try {
-            query = ParseQuery.getQuery("Reserva");
-            query.whereEqualTo("usuario", user);
+        ParseQuery<ParseObject> queryRes;
+        List<ParseObject> listRes;
+        FuncionDAOImpl auxFun = new FuncionDAOImpl();
 
-            list = query.find();
-            if (list.size() == 0) {
+        try {
+            queryRes = ParseQuery.getQuery("Reserva");
+            queryRes.whereEqualTo("usuario", user.getNombre());
+
+            listRes = queryRes.find();
+            if (listRes.size() == 0) {
                 return null;
             }else {
                 res = new Reserva();
-                for (int x=0;x<list.size();x++){
-                    //res.setPelicula(list.get(x).getParseObject("pelicula"));
+                for (int x=0;x<listRes.size();x++){
+                    res.setUsuario(user);
+                    res.setPrecio(listRes.get(x).getInt("precio"));
+                    res.setSillas((List<Silla>) listRes.get(x).getJSONArray("sillas"));
+                    res.setFuncion(auxFun.obtenerFuncion(listRes.get(x).getInt("funcionId")));
+                    reservas.add(res);
+
                 }
+                return reservas;
             }
 
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        return r;
+        return null;
     }
 }

@@ -10,6 +10,7 @@ import com.parse.ParseUser;
 import java.util.List;
 
 import dao.UsuarioDAO;
+import dto.Reserva;
 import dto.Usuario;
 
 /**
@@ -35,7 +36,7 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 
     @Override
     public Usuario obtenerUsuario(String username) {
-        Usuario u = new Usuario();
+        Usuario user = new Usuario();
         ParseQuery<ParseObject> query;
         List<ParseObject> list;
         try {
@@ -45,16 +46,22 @@ public class UsuarioDAOImpl implements UsuarioDAO{
             list = query.find();
             if (list.size() == 0) {
                 return null;
+            }else {
+                user.setNombre(username);
+                user.setCorreo(list.get(0).getString("email"));
+                user.setContraseña(list.get(0).getString("password"));
+                user.setPuntos(list.get(0).getInt("puntos"));
+                //user.setReservas((List<Reserva>) list.get(0).getJSONArray("reservas"));
             }
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        return u;
+        return user;
     }
 
     @Override
     public Usuario obtenerUsuarioPorCorreo(String correo) {
-        Usuario u = new Usuario();
+        Usuario user = new Usuario();
         ParseQuery<ParseObject> query;
         List<ParseObject> list;
         try {
@@ -65,10 +72,17 @@ public class UsuarioDAOImpl implements UsuarioDAO{
             if (list.size() == 0) {
                 return null;
             }
+            else {
+                user.setNombre(list.get(0).getString("username"));
+                user.setCorreo(correo);
+                user.setContraseña(list.get(0).getString("password"));
+                user.setPuntos(list.get(0).getInt("puntos"));
+                //user.setReservas((List<Reserva>) list.get(0).getJSONArray("reservas"));
+            }
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        return u;
+        return user;
     }
 
 }

@@ -9,28 +9,16 @@ import java.util.List;
  */
 public class Sala implements Serializable {
 
-    private String cinema;
+    private String teatro;
     private int idSala;
     private List<Silla> sillas;
-    private Date horario;
-
-
-    public Date getHorarios() {
-        return horario;
-    }
-
-    public void setHorarios(Date horarios) {
-        this.horario = horarios;
-    }
-
-
 
     public String getCinema() {
-        return cinema;
+        return teatro;
     }
 
     public void setCinema(String cinema) {
-        this.cinema = cinema;
+        this.teatro = cinema;
     }
 
     public int getIdSala() {

@@ -25,20 +25,9 @@ public class Pelicula extends ParseObject implements Serializable {
     private String sipnosis;
     private String reparto; //Actores
 
-
-    private List<Date> horarios;
-    private List<Sala> salas;
     private byte[] imagen;
 
-    public List<Sala> getSalas() {
-        return salas;
-    }
-
-    public void setSalas(List<Sala> salas) {
-        this.salas = salas;
-    }
-
-    public int getAño() {
+     public int getAño() {
         return año;
     }
 
@@ -124,14 +113,6 @@ public class Pelicula extends ParseObject implements Serializable {
 
     public void setReparto(String reparto) {
         this.reparto = reparto;
-    }
-
-    public List<Date> getHorarios() {
-        return horarios;
-    }
-
-    public void setHorarios(List<Date> horarios) {
-        this.horarios = horarios;
     }
 
     public String getNombre() {

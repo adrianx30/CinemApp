@@ -11,7 +11,7 @@ import dto.Usuario;
  */
 public interface PeliculaDAO {
 
-    Pelicula obtenerPelicula();
+    Pelicula obtenerPelicula(String nombre);
 
 
 }

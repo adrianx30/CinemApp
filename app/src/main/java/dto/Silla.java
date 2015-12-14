@@ -7,17 +7,17 @@ import java.io.Serializable;
  */
 public class Silla implements Serializable{
 
-    private Sala sala;
+    private Funcion funcion;
     private int fila;
     private int asiento;
     private String estado;
 
-    public Sala getSala() {
-        return sala;
+    public Funcion getFuncion() {
+        return funcion;
     }
 
-    public void setSala(Sala sala) {
-        this.sala = sala;
+    public void setFuncion(Funcion funcion) {
+        this.funcion = funcion;
     }
 
     public int getFila() {

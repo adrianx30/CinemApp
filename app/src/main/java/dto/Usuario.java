@@ -13,8 +13,6 @@ public class Usuario implements Serializable {
     private String contraseña;
     private Boolean logueado;
     private int puntos;
-
-
     private List<Reserva> reservas;
 
     public String getNombre() {
