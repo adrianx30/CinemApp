@@ -71,7 +71,9 @@ public class ReservaDAOImpl implements ReservaDAO{
                 for (int x=0;x<listRes.size();x++){
                     res.setUsuario(user);
                     res.setPrecio(listRes.get(x).getInt("precio"));
-                    res.setSillas((List<Silla>) listRes.get(x).getJSONArray("sillas"));
+
+                    res.setSillas((List<Silla>) listRes.get(x).getJSONArray("sillas")); //VERIFICAR!!!!!!!!!!!!!!
+
                     res.setFuncion(auxFun.obtenerFuncion(listRes.get(x).getInt("funcionId")));
                     reservas.add(res);
 
