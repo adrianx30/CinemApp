@@ -1,5 +1,7 @@
 package dao.impl;
 
+import android.util.Log;
+
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
@@ -23,10 +25,16 @@ public class FuncionDAOImpl implements FuncionDAO {
         try {
             fun = new ParseObject("Funcion");
             fun.put("funcionId", funcion.getFuncionId());
+            Log.d("log", "Añadio funcion");
             fun.put("teatro", funcion.getTeatro().getNombre());
+            Log.d("log", "Añadio teatro");
             fun.put("pelicula", funcion.getPelicula().getNombre());
-            fun.put("horario", funcion.getHorario());
-            fun.saveInBackground();
+            Log.d("log", "Añadio pelicula");
+            //fun.put("horario", funcion.getHorario());
+            //fun.saveInBackground();
+            fun.pin();
+            fun.saveEventually();
+            Log.d("grabando", "si grabó, se supone");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -115,4 +123,6 @@ public class FuncionDAOImpl implements FuncionDAO {
 
         return fun;
     }
+
+
 }

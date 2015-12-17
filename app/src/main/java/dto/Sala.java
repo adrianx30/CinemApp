@@ -11,7 +11,7 @@ public class Sala implements Serializable {
 
     private String teatro;
     private int idSala;
-    private List<Silla> sillas;
+
 
     public String getCinema() {
         return teatro;
@@ -29,11 +29,4 @@ public class Sala implements Serializable {
         this.idSala = idSala;
     }
 
-    public List<Silla> getSillas() {
-        return sillas;
-    }
-
-    public void setSillas(List<Silla> sillas) {
-        this.sillas = sillas;
-    }
 }

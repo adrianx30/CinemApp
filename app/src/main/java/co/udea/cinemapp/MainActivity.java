@@ -24,8 +24,15 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 import co.udea.cinemapp.Fragments.*;
+import dao.impl.FuncionDAOImpl;
+import dto.Funcion;
+import dto.Pelicula;
+import dto.Silla;
+import dto.Teatro;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -41,6 +48,35 @@ public class MainActivity extends AppCompatActivity {
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        /*Teatro t = new Teatro();
+        t.setNombre("cinemark");
+
+        Pelicula p = new Pelicula();
+        Funcion f = new Funcion();
+        p.setNombre("pelicula prueba");
+        Silla s = new Silla();
+        s.setAsiento(2);
+        s.setEstado("libre");
+        s.setFila(3);
+        f.setFuncionId(1);
+        s.setFuncion(1);
+        f.setPelicula(p);
+        f.setTeatro(t);
+        //f.setHorario(Date.class.newInstance().getTime());
+        Silla s2 = new Silla();
+        s2.setAsiento(2);
+        s2.setEstado("libre");
+        s2.setFila(3);
+        s2.setFuncion(1);
+        List<Silla> sillas = new ArrayList<>();
+        sillas.add(s);
+        sillas.add(s2);
+        f.setSillas(sillas);
+        FuncionDAOImpl creador = new FuncionDAOImpl();
+        creador.crearFuncion(f);
+        */
+
 
         actionBar = getSupportActionBar();
         actionBar.setHomeAsUpIndicator(R.drawable.ic_menu_white_24dp); //Mostrar boton home con 'icono'

@@ -1,46 +1,50 @@
 package dto;
 
+import com.parse.ParseClassName;
+import com.parse.ParseObject;
+
 import java.io.Serializable;
 
 /**
  * Created by Adrián on 08/12/2015.
  */
-public class Silla implements Serializable{
+@ParseClassName("Silla")
+public class Silla extends ParseObject implements Serializable{
 
-    private Funcion funcion;
+    private int funcionId;
     private int fila;
     private int asiento;
     private String estado;
 
-    public Funcion getFuncion() {
-        return funcion;
+    public int getFuncion() {
+        return getInt("funcion");
     }
 
-    public void setFuncion(Funcion funcion) {
-        this.funcion = funcion;
+    public void setFuncion(int funcion) {
+        put("funcion",funcion);
     }
 
     public int getFila() {
-        return fila;
+        return getInt("fila");
     }
 
     public void setFila(int fila) {
-        this.fila = fila;
+        put("fila",fila);
     }
 
     public int getAsiento() {
-        return asiento;
+        return getInt("asiento");
     }
 
     public void setAsiento(int asiento) {
-        this.asiento = asiento;
+        put("asiento",asiento);
     }
 
     public String getEstado() {
-        return estado;
+        return getString("estado");
     }
 
     public void setEstado(String estado) {
-        this.estado = estado;
+        put("estado",estado);
     }
 }

@@ -39,7 +39,7 @@ public class PeliculaDAOImpl implements PeliculaDAO {
                 pel.setSipnosis(list.get(0).getString("sipnosis"));
                 pel.setReparto(list.get(0).getString("reparto"));
                 if (list.get(0).getBytes("foto") != null) {
-                    pel.setImagen(Utility.descompressByteArray(list.get(0).getBytes("foto")));
+                   // pel.setImagen(Utility.descompressByteArray(list.get(0).getBytes("foto")));
                 }
             }
         } catch (ParseException e) {

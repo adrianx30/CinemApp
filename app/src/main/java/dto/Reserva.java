@@ -1,21 +1,30 @@
 package dto;
 
+import com.parse.ParseClassName;
+import com.parse.ParseObject;
+
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+import dao.impl.FuncionDAOImpl;
+
 /**
  * Created by Adrián on 08/12/2015.
  */
-public class Reserva implements Serializable {
+@ParseClassName("Reserva")
+public class Reserva extends ParseObject implements Serializable {
 
     private Funcion funcion;
     private Usuario usuario;
-    private List<Silla> sillas;
     private double precio;
 
+    private List<Silla> sillas;
+
+
     public Funcion getFuncion() {
-        return funcion;
+        FuncionDAOImpl f = new FuncionDAOImpl();
+        return f.obtenerFuncion(funcion.getFuncionId());
     }
 
     public void setFuncion(Funcion funcion) {

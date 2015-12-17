@@ -1,5 +1,7 @@
 package dto;
 
+import android.graphics.Bitmap;
+
 import com.parse.ParseClassName;
 import com.parse.ParseObject;
 
@@ -10,8 +12,9 @@ import java.util.List;
 /**
  * Created by Adrián on 08/12/2015.
  */
-@ParseClassName("Pelicula")
-public class Pelicula extends ParseObject implements Serializable {
+
+//@ParseClassName("Pelicula")
+public class Pelicula implements Serializable {
 
     private String nombre;
     private int año;
@@ -25,7 +28,7 @@ public class Pelicula extends ParseObject implements Serializable {
     private String sipnosis;
     private String reparto; //Actores
 
-    private byte[] imagen;
+    private Bitmap imagen;
 
      public int getAño() {
         return año;
@@ -91,11 +94,11 @@ public class Pelicula extends ParseObject implements Serializable {
         this.genero = genero;
     }
 
-    public byte[] getImagen() {
+    public Bitmap getImagen() {
         return imagen;
     }
 
-    public void setImagen(byte[] imagen) {
+    public void setImagen(Bitmap imagen) {
         this.imagen = imagen;
     }
 
